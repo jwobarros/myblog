@@ -1,2 +1,1 @@
-release: python main/manage.py migrate -app=johnnatanbarros
-web: gunicorn main/main.wsgi -app=johnnatanbarros
+web: gunicorn main.wsgi
