@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic.base import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -29,6 +30,9 @@ urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
     path('post/<slug:slug>/', post_detail, name='post-detail'),
     path('subscribe', subscribe_view, name='subscribe'),
+    path(r'^favicon\.ico$', RedirectView.as_view(url='/staticfiles/favicon.ico')),
     path('admin/', admin.site.urls),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
 
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
