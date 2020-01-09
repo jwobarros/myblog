@@ -41,12 +41,6 @@
   <!-- Title -->
   <h1 class="mt-4">{{ post.title }}</h1>
 
-  <!-- Share -->
-  <button class="btn btn-secondary"><i class="fas fa-share-alt-square fa-2x"></i></button>  
-  <a data-toggle="tooltip" data-placement="bottom" title="Compartilhar no Linkedin" href="#"><i class="btn btn-primary fab fa-linkedin fa-2x"></i></a>
-  <a data-toggle="tooltip" data-placement="bottom" title="Compartilhar no Twitter" href="#"><i class="btn btn-primary fab fa-twitter-square fa-2x"></i></a>
-  <a data-toggle="tooltip" data-placement="bottom" title="Compartilhar no Facebook" href="#"><i class="btn btn-primary fab fa-facebook-square fa-2x"></i></a>
-
   <hr>
 
   <!-- Date/Time -->
@@ -55,7 +49,7 @@
   <hr>
 
   <!-- Preview Image -->
-  <img class="img-fluid rounded" src="{{ post.image.url }}" alt="{{ post.title }}">
+  <img class="card-img-top rounded" style="max-height: 300px;" src="{{ post.image.url }}" alt="{{ post.title }}">
 
   <hr>
 
@@ -63,16 +57,6 @@
 
   {{ post.content|safe }}
 
-  <hr>
-  <br>
-
-  <!-- Share -->
-  <button class="btn btn-secondary"><i class="fas fa-share-alt-square fa-2x"></i></button>  
-  <a data-toggle="tooltip" data-placement="bottom" title="Compartilhar no Linkedin" href="#"><i class="btn btn-primary fab fa-linkedin fa-2x"></i></a>
-  <a data-toggle="tooltip" data-placement="bottom" title="Compartilhar no Twitter" href="#"><i class="btn btn-primary fab fa-twitter-square fa-2x"></i></a>
-  <a data-toggle="tooltip" data-placement="bottom" title="Compartilhar no Facebook" href="#"><i class="btn btn-primary fab fa-facebook-square fa-2x"></i></a>
-
-  <br>
   <br>
   <hr>
 
