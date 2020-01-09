@@ -3,6 +3,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.http import JsonResponse, Http404
+from django.views.decorators.csrf import csrf_exempt
 from blog.models import Post, Tag, Subscriber
 from blog.forms import CommentForm
 
@@ -60,13 +61,18 @@ def post_detail(request, slug):
                                            'tags': tags
                                         })
 
-
+@csrf_exempt
 def subscribe_view(request):
     if request.method == "POST" and request.is_ajax():
+
         email = request.POST.get('email', None)
-        Subscriber.objects.create(email=email)
-        data = {
-            'registered': True
-        }
+        
+        if not Subscriber.objects.filter(email=email).exists():
+            Subscriber.objects.create(email=email)
+
+            data = { 'registered': True }
+        else:
+            data = { 'registered': True }
+
         return JsonResponse(data)
     raise Http404("Página não encontrada.")
