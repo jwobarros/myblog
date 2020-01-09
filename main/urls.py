@@ -30,7 +30,7 @@ urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
     path('post/<slug:slug>/', post_detail, name='post-detail'),
     path('subscribe', subscribe_view, name='subscribe'),
-    path(r'^favicon\.ico$', RedirectView.as_view(url='/staticfiles/favicon.ico')),
+    path('favicon.ico', RedirectView.as_view(url='/staticfiles/favicon.ico')),
     path('admin/', admin.site.urls),
 ] 
 
