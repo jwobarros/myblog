@@ -25,7 +25,7 @@ class Post(models.Model):
 
     title = models.CharField(verbose_name="Titulo", max_length=100)
     slug = AutoSlugField(populate_from='title', unique=True)
-    summary = models.TextField(verbose_name="Resumo")
+    summary = RichTextField(verbose_name="Resumo")
     image = models.FileField(upload_to='uploads/%Y/%m/%d/')
     content =  RichTextField(verbose_name="Conteúdo")
     tags = models.ManyToManyField(Tag, related_name="tags")
@@ -40,7 +40,7 @@ class Post(models.Model):
         ordering = ['-created_at']
     
     def get_related(self):
-        related = Post.objects.filter(tags__in=self.tags.all())
+        related = Post.objects.filter(tags__in=self.tags.all()).distinct().exclude(id=self.id)
         return related
 
     def __str__(self):
