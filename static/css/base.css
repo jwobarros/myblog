@@ -1,0 +1,113 @@
+
+.related-post {
+    cursor: pointer;
+}
+
+.related-post img:hover {
+    opacity: 0.8;
+}
+
+.post-container {
+    position: relative;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.post-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+.post-container:hover img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    opacity: 0.8;
+}
+
+
+.post-container:hover .overlay {
+    opacity: 0.8;
+ }
+
+  
+  /* Bottom left text */
+  .bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+  }
+  
+  /* Top left text */
+  .top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+  }
+  
+  /* Top right text */
+  .top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+  }
+  
+  /* Bottom right text */
+  .bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+  }
+  
+  /* Centered text */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+  }
+
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    align-self: center;
+  }
+
+  @media (max-width: 600px) {
+    .related-post img:hover {
+        opacity: 0.8;
+    }
+}
+
+
+@media (min-width: 600px) {
+    .related-post img:hover {
+        opacity: 0.8;
+    }
+    
+    .post-container:hover img {
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+        opacity: 0.8;
+    }
+}
