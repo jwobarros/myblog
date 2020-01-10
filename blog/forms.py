@@ -6,7 +6,6 @@ from blog.models import Comment
 
 
 class CommentForm(forms.ModelForm):
-    body = forms.CharField(widget=CKEditorWidget())
 
     class Meta:
         model = Comment
@@ -29,3 +28,4 @@ class CommentForm(forms.ModelForm):
         )
         self.fields['name'].widget.attrs['placeholder'] = "Nome"
         self.fields['email'].widget.attrs['placeholder'] = "E-mail"
+        self.fields['body'].widget.attrs['placeholder'] = "Deixe sua mensagem"
