@@ -151,7 +151,7 @@ SECURE_SSL_REDIRECT = SAFE_SETTTINGS
 USE_S3 = os.environ['USE_S3'] == 'True'
 
 if USE_S3:
-
+    AWS_DEFAULT_ACL = True
     AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     AWS_STORAGE_BUCKET_NAME = 'johnnatanbarros-bucket'
