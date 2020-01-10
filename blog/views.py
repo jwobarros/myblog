@@ -18,7 +18,7 @@ class HomePageView(ListView):
         return context
 
     def get_queryset(self):
-        if self.request.user:
+        if self.request.user.is_authenticated:
             objects = self.model.objects.all()
         else:
             objects = self.model.objects.filter(public=True)
