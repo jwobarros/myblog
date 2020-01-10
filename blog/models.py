@@ -38,6 +38,10 @@ class Post(models.Model):
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
         ordering = ['-created_at']
+    
+    def get_related(self):
+        related = Post.objects.filter(tags__in=self.tags.all())
+        return related
 
     def __str__(self):
         """Unicode representation of Post."""
@@ -48,7 +52,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, verbose_name="Post", on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=80, verbose_name="Autor")
     email = models.EmailField(verbose_name="E-mail")
-    body = RichTextField(verbose_name="Conteúdo")
+    body = models.TextField(verbose_name="Conteúdo")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Comentado em")
     active = models.BooleanField(default=False)
 
