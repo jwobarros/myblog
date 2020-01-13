@@ -49,9 +49,7 @@
         <div class="top-right d-sm-none d-md-none d-lg-block"><i class="fas fa-user"></i> {{ request.user.first_name }} {{ request.user.last_name }}</div>
         <div class="bottom-right">
           {% for tag in post.tags.all %}
-            <a class="text-white" href="{% url 'home' %}?tag={{ tag }}" role="alert">
-              {{ tag }}
-            </a>        
+            {{ tag }}
           {% endfor %}
         </div>
         <div class="overlay d-flex justify-content-center align-items-center"><h5>{{post.summary|safe}}</h5></div>
