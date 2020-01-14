@@ -24,7 +24,7 @@ class Post(models.Model):
     """Model definition for Post."""
 
     title = models.CharField(verbose_name="Titulo", max_length=100)
-    slug = AutoSlugField(populate_from='title', unique=True)
+    slug = AutoSlugField(populate_from='title', unique=True, always_update=True)
     summary = RichTextField(verbose_name="Resumo")
     image = models.FileField(upload_to='uploads/%Y/%m/%d/')
     content =  RichTextField(verbose_name="Conteúdo")
