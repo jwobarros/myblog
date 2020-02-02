@@ -3,40 +3,6 @@
 {% load crispy_forms_tags %}
 {% load blog_filters %}
 
-{% block categories %}
-
-  <div class="col-lg-6">
-    <ul class="list-unstyled mb-0">
-      {% for tag in tags %}
-  
-        {% if forloop.counter|even %}
-          <li>
-            <a href="{% url 'home' %}?tag={{ tag }}">{{ tag }}</a>
-          </li>
-        {% endif %} 
-
-      {% endfor %}
-
-    </ul>
-  </div>
-
-  <div class="col-lg-6">
-    <ul class="list-unstyled mb-0">
-      {% for tag in tags %}
-  
-        {% if not forloop.counter|even %}
-          <li>
-            <a href="{% url 'home' %}?tag={{ tag }}">{{ tag }}</a>
-          </li>
-        {% endif %} 
-
-      {% endfor %}
-
-    </ul>
-  </div>
-
-{% endblock categories %}
-
 {% block content %}
 
   <!-- Title -->

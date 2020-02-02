@@ -4,6 +4,9 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.http import JsonResponse, Http404
 from django.views.decorators.csrf import csrf_exempt
+
+from watson import search as watson
+
 from blog.models import Post, Tag, Subscriber
 from blog.forms import CommentForm
 
@@ -23,13 +26,10 @@ class HomePageView(ListView):
         else:
             objects = self.model.objects.filter(public=True)
 
-        title = self.request.GET.get('title', '')
-        tag = self.request.GET.get('tag', '')
+        search = self.request.GET.get('search', '')
 
-        if title:
-            objects = objects.filter(title__icontains = title)
-        if tag:
-            objects = objects.filter(tags__name = tag)
+        if search:
+            objects = watson.filter(objects, search)
    
         return objects
 

@@ -77,23 +77,12 @@
               <div class="card-body">
                 <form method="GET">
                   <div class="input-group">
-                    <input id="search_title" type="text" name="title" value="{{ request.GET.title }}" class="form-control" placeholder="Pesquisar por...">
+                    <input id="search_title" type="text" name="search" value="{{ request.GET.search }}" class="form-control" placeholder="Pesquisar por...">
                     <span class="input-group-btn">
-                      <button type="button" onclick="searchByTitle(title=document.getElementById('search_title').value)" class="btn btn-secondary mx-2 material-icons" type="button"><i class="fas fa-search"></i></button>
+                      <button type="button" onclick="searchByTitle(search=document.getElementById('search_title').value)" class="btn btn-secondary mx-2 material-icons" type="button"><i class="fas fa-search"></i></button>
                     </span>
                   </div>
                 </form>        
-              </div>
-            </div>
-        
-            <div class="card my-4">
-              <h5 class="card-header bg-dark text-light">Categorias</h5>
-              <div class="card-body">
-                <div class="row">
-                  {% block categories %}
-                      
-                  {% endblock categories %}
-                </div>
               </div>
             </div>
         
@@ -159,7 +148,7 @@
     <script type="text/javascript">
       var base_url = "{% url 'home' %}"
       function searchByTitle(title) {
-        window.location.href = base_url + "?title=" + title;
+        window.location.href = base_url + "?search=" + title;
       }
 
       $(function () {
