@@ -172,5 +172,12 @@ if USE_S3:
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
     DEFAULT_FILE_STORAGE = 'main.storage_backends.PublicMediaStorage' 
 
+
+# Mommy configs
+MOMMY_CUSTOM_FIELDS_GEN = {
+    'autoslug.fields.AutoSlugField': lambda: "Default test text",
+    'ckeditor.fields.RichTextField': lambda: "Default test text"
+}
+
 # Heroku config
 django_heroku.settings(locals())
