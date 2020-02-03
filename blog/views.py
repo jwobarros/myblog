@@ -14,11 +14,11 @@ class HomePageView(ListView):
 
     template_name = "home.html"
     model = Post
+    ordering = ["-created_at"]
     paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["tags"] = Tag.objects.all()
         return context
 
     def get_queryset(self):
@@ -31,7 +31,7 @@ class HomePageView(ListView):
 
         if search:
             objects = watson.filter(objects, search)
-   
+
         return objects
 
 
