@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load blog_filters %}
-
+{% load pagination %}
 
 {% block content %} 
   <br>
@@ -17,5 +16,7 @@
     <br>
     <hr>
   {% endfor %}
+  
+  {% pagination request paginator page_obj %}
 
 {% endblock content %}
